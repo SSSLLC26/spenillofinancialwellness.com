@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spenillo Saving Solution | Personal Finance Coaching</title>
+  <meta name="description" content="Real-world personal finance coaching from someone who's been in the trenches. Budgeting, debt payoff, savings strategies, and financial literacy coaching.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #222222;
+      background: #FFFFFF;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== COLORS ===== */
+    :root {
+      --navy: #1A2332;
+      --gold: #C8A45C;
+      --gold-light: #D4B76E;
+      --white: #FFFFFF;
+      --dark: #222222;
+      --gray: #666666;
+      --light-bg: #F8F8F8;
+      --navy-90: rgba(26, 35, 50, 0.95);
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5rem 0; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(200, 164, 92, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--navy);
+    }
+    .btn-white:hover {
+      background: var(--light-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--navy-90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 164, 92, 0.15);
+      transition: all 0.3s ease;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links .btn { padding: 0.6rem 1.4rem; font-size: 0.75rem; }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(200, 164, 92, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to top, var(--navy), transparent);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+    }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works { background: var(--white); }
+    .how-it-works .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+    }
+    .step h3 { margin-bottom: 0.75rem; color: var(--navy); }
+    .step p { color: var(--gray); font-size: 0.95rem; }
+
+    /* ===== SERVICES OVERVIEW (Home) ===== */
+    .services-overview {
+      background: var(--light-bg);
+    }
+    .services-overview .section-header { text-align: center; margin-bottom: 3rem; }
+    .services-overview .section-header p { color: var(--gray); max-width: 600px; margin: 1rem auto 0; }
+    .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 3px solid var(--gold);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .service-card h3 { color: var(--navy); margin-bottom: 0.5rem; }
+    .service-card .price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--gold);
+      margin: 1rem 0;
+    }
+    .service-card .price-sub {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .service-card p { color: var(--gray); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .service-card .btn { width: 100%; text-align: center; }
+
+    /* ===== STORY TEASER ===== */
+    .story-teaser {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .story-teaser .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .story-teaser blockquote {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.5;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .story-teaser p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+    /* ===== MY STORY (Full Page) ===== */
+    .my-story { background: var(--white); }
+    .my-story .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .story-section { max-width: 760px; margin: 0 auto 3rem; }
+    .story-section h3 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .story-section p { color: var(--gray); margin-bottom: 1rem; }
+    .story-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 2.5rem auto;
+    }
+
+    /* ===== SERVICES (Full Page) ===== */
+    .services-full { background: var(--light-bg); }
+    .services-full .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-full .section-header p { color: var(--gray); max-width: 600px; margin: 1rem auto 0; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; }
+    .pricing-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--gold);
+      position: relative;
+    }
+    .pricing-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 0.4rem;
+    }
+    .pricing-card-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
+    .pricing-card.featured .pricing-card-header { padding-top: 2.8rem; }
+    .pricing-card-header h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+    .pricing-card-header .price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: var(--gold);
+    }
+    .pricing-card-header .price-info {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+    .pricing-card-body {
+      padding: 2rem;
+    }
+    .pricing-card-body p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card-body ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-card-body li {
+      padding: 0.5rem 0;
+      color: var(--dark);
+      font-size: 0.9rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+    .pricing-card-body li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .pricing-card-body .btn { width: 100%; text-align: center; }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--white); }
+    .faq .section-header { text-align: center; margin-bottom: 3rem; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      padding: 0;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      font-size: 1.5rem;
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+    .faq-answer p { color: var(--gray); font-size: 0.95rem; }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--light-bg); }
+    .contact .section-header { text-align: center; margin-bottom: 3rem; }
+    .contact .section-header p { color: var(--gray); max-width: 520px; margin: 1rem auto 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .contact-form {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+      transition: border-color 0.3s;
+      background: var(--white);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-info h3 {
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail .icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gold);
+    }
+    .contact-detail div { padding-top: 0.3rem; }
+    .contact-detail .label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail .value {
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      background: var(--navy);
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .cta-banner h2 { color: var(--white); margin-bottom: 1rem; }
+    .cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #111820;
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 0 2rem;
+    }
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-brand .nav-logo { margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.85rem; max-width: 340px; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .steps-grid, .service-cards, .pricing-cards { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .story-teaser .container { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(200,164,92,0.15);
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: flex; }
+      section { padding: 3.5rem 0; }
+      .hero { min-height: 90vh; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { text-align: center; }
+      .footer .container { flex-direction: column; text-align: center; align-items: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="nav-logo">SPENILLO <span>SAVING</span> SOLUTION</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">My Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn btn-gold">Book a Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <p class="section-label">Personal Finance Coaching</p>
+        <h1>Your Money. Your Rules.<br>Your <em>Future.</em></h1>
+        <p>Real-world personal finance coaching from someone who's been in the trenches &mdash; not a textbook. I went from dodging debt collectors to owning my financial future. Now I help others do the same.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-gold">Book Your Free Discovery Call</a>
+          <a href="#services" class="btn btn-outline">View Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">The Process</p>
+        <h2>How It Works</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step fade-in">
+          <div class="step-number">1</div>
+          <h3>Book a Free Discovery Call</h3>
+          <p>We'll talk about where you are financially, what's keeping you up at night, and what you want your money to do for you. No pressure, no pitch &mdash; just a real conversation.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-number">2</div>
+          <h3>Get Your Custom Game Plan</h3>
+          <p>Based on your situation, I'll build a personalized strategy covering your budget, debt, savings, and long-term goals. No cookie-cutter templates.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-number">3</div>
+          <h3>Execute &amp; Level Up</h3>
+          <p>We work the plan together. Regular coaching sessions, accountability check-ins, and real-time support so you're never navigating alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES OVERVIEW (Home) ===== -->
+  <section class="services-overview">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">What I Offer</p>
+        <h2>Coaching Built for Where You Are</h2>
+        <p>Whether you need a tune-up or a complete financial overhaul, there's a package for you.</p>
+      </div>
+      <div class="service-cards">
+        <div class="service-card fade-in">
+          <h3>Discovery Call</h3>
+          <div class="price">FREE</div>
+          <div class="price-sub">30 minutes</div>
+          <p>A no-pressure conversation to talk about your goals, your challenges, and how coaching can help.</p>
+          <a href="#contact" class="btn btn-gold">Book Now</a>
+        </div>
+        <div class="service-card fade-in">
+          <h3>Monthly Coaching</h3>
+          <div class="price">$99<span style="font-size:0.5em;font-weight:400">/mo</span></div>
+          <div class="price-sub">Ongoing support</div>
+          <p>Consistent sessions, budget reviews, and direct messaging support to build better money habits month over month.</p>
+          <a href="#services" class="btn btn-gold">Learn More</a>
+        </div>
+        <div class="service-card fade-in">
+          <h3>Financial Overhaul</h3>
+          <div class="price">$297</div>
+          <div class="price-sub">6 sessions &bull; 8&ndash;12 weeks</div>
+          <p>The full transformation. We'll audit everything and rebuild your entire financial foundation from the ground up.</p>
+          <a href="#services" class="btn btn-gold">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORY TEASER ===== -->
+  <section class="story-teaser">
+    <div class="container">
+      <div class="fade-in">
+        <blockquote>"I didn't learn about money from a textbook. I learned it the hard way."</blockquote>
+        <p>A few years ago, my wife and I were buried in consumer debt, dodging collection calls, and seriously considering bankruptcy. Today? We own a home, drive a brand new car, have zero consumer debt, and know exactly where every dollar goes.</p>
+        <p>That transformation is what this business is built on.</p>
+        <a href="#story" class="btn btn-white">Read My Full Story</a>
+      </div>
+      <div class="fade-in" style="display:flex;align-items:center;justify-content:center;">
+        <div style="width:200px;height:200px;border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MY STORY (Full) ===== -->
+  <section class="my-story" id="story">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">My Story</p>
+        <h2>From Rock Bottom to Financial Freedom</h2>
+      </div>
+
+      <div class="story-section fade-in">
+        <h3>The Struggle</h3>
+        <p>I didn't grow up learning about money. Nobody in my family talked about budgets, investing, or building wealth. Like a lot of people, I figured things out as I went &mdash; and for a long time, I figured wrong.</p>
+        <p>By the time my wife and I started building a life together, we were drowning. Consumer debt was piling up. Collection agencies were calling constantly. We didn't have a savings account, we didn't have a plan, and at one point, we were seriously considering bankruptcy as our only way out.</p>
+        <p>It was the lowest point of my financial life.</p>
+      </div>
+
+      <div class="story-divider"></div>
+
+      <div class="story-section fade-in">
+        <h3>The Turning Point</h3>
+        <p>Instead of giving up, I got obsessed. I spent years educating myself &mdash; not in a classroom, but in the real world. Budgeting systems, debt payoff strategies, good debt vs. bad debt, investing fundamentals, retirement planning. I consumed everything I could get my hands on.</p>
+        <p>I took on every single debt collector myself. No lawyer, no professional help. I negotiated, I strategized, and I fought for our financial future.</p>
+      </div>
+
+      <div class="story-divider"></div>
+
+      <div class="story-section fade-in">
+        <h3>The Transformation</h3>
+        <p>Today, my wife and I own a home. We drive a brand new car. We have retirement accounts, investment portfolios, zero consumer debt, a healthy savings, and we know exactly where every dollar goes.</p>
+        <p>That didn't happen because someone handed us a playbook. It happened because I built one &mdash; through trial, error, and relentless discipline.</p>
+      </div>
+
+      <div class="story-divider"></div>
+
+      <div class="story-section fade-in">
+        <h3>Why I Coach</h3>
+        <p>I started Spenillo Saving Solution because I know what it feels like to stare at your bank account and feel hopeless. I know what it's like to avoid answering the phone because it might be a collector. And I know what it feels like to come out the other side.</p>
+        <p>I don't have fancy letters behind my name. What I have is proof that this works &mdash; and the drive to help other people experience the same transformation.</p>
+        <p>I'm also a licensed health insurance agent, which is the only professional credential I hold in the financial services space. My coaching is strictly educational &mdash; I help people with budgeting, debt management, savings habits, and financial literacy. I don't provide investment advice, and if your situation requires a licensed professional, I'll always be transparent about that.</p>
+      </div>
+
+      <div style="text-align:center; margin-top:2rem;" class="fade-in">
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.2rem;color:var(--navy);margin-bottom:1.5rem;">If I can do it, you can too. Let me show you how.</p>
+        <a href="#contact" class="btn btn-gold">Book Your Free Discovery Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES (Full Detail) ===== -->
+  <section class="services-full" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Services &amp; Pricing</p>
+        <h2>Coaching That Meets You Where You Are</h2>
+        <p>No matter where you're starting from, there's a path forward. Choose the level of support that fits your situation and your goals.</p>
+      </div>
+      <div class="pricing-cards">
+        <!-- Discovery Call -->
+        <div class="pricing-card fade-in">
+          <div class="pricing-card-header">
+            <h3>Discovery Call</h3>
+            <div class="price">FREE</div>
+            <div class="price-info">30 minutes</div>
+          </div>
+          <div class="pricing-card-body">
+            <p>A free, no-pressure conversation where we talk about your financial situation, your goals, and your biggest pain points.</p>
+            <ul>
+              <li>30-minute video or phone call</li>
+              <li>Initial financial assessment</li>
+              <li>Honest recommendation on next steps</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">Book Your Free Call</a>
+          </div>
+        </div>
+        <!-- Monthly Coaching -->
+        <div class="pricing-card featured fade-in">
+          <div class="pricing-card-header">
+            <h3>Monthly Coaching</h3>
+            <div class="price">$99<span style="font-size:0.4em;font-weight:400">/mo</span></div>
+            <div class="price-info">Ongoing support &amp; accountability</div>
+          </div>
+          <div class="pricing-card-body">
+            <p>For people who want consistent support month-over-month to build better money habits and grow their savings.</p>
+            <ul>
+              <li>2 coaching sessions per month (45&ndash;60 min)</li>
+              <li>Personalized budget review &amp; debt strategy</li>
+              <li>Custom savings plan aligned to your goals</li>
+              <li>Accountability check-ins between sessions</li>
+              <li>Direct messaging support for questions</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">Get Started</a>
+          </div>
+        </div>
+        <!-- Financial Overhaul -->
+        <div class="pricing-card fade-in">
+          <div class="pricing-card-header">
+            <h3>Financial Overhaul</h3>
+            <div class="price">$297</div>
+            <div class="price-info">6 sessions &bull; 8&ndash;12 weeks</div>
+          </div>
+          <div class="pricing-card-body">
+            <p>The full transformation. Tear it all down and rebuild your financial foundation from the ground up.</p>
+            <ul>
+              <li>6 deep-dive coaching sessions (45&ndash;60 min)</li>
+              <li>Complete financial audit &mdash; income, debt, expenses, assets</li>
+              <li>Custom debt payoff plan (avalanche or snowball)</li>
+              <li>Full budget rebuild with a system that works for you</li>
+              <li>Savings strategy &amp; long-term financial roadmap</li>
+              <li>Tracker setup &mdash; the same tools I use personally</li>
+              <li>Ongoing messaging support throughout</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">Let's Build Your Future</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;" class="fade-in">
+        <p style="color:var(--gray);margin-bottom:1rem;">Not sure which package is right? Start with a free discovery call.</p>
+        <a href="#contact" class="btn btn-outline">Book Your Free Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">FAQ</p>
+        <h2>Questions? We've Got Answers.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>What exactly is personal finance coaching?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>It's one-on-one guidance to help you get control of your money. We cover budgeting, debt payoff, savings strategies, and building better financial habits. Think of it as having someone in your corner who's been through it and can show you the way.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>Are you a financial advisor?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No &mdash; and that's intentional. I'm a personal finance coach, not a licensed financial advisor. I don't manage investments, recommend securities, or provide tax or legal advice. My coaching is strictly educational and based on real-world experience. If your situation requires a licensed professional, I'll always point you in the right direction.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>What qualifies you to coach?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Experience. I went from being buried in consumer debt and considering bankruptcy to owning a home, having investment portfolios, and being completely debt-free. I spent years educating myself and building the systems that changed my family's life. I'm also a licensed health insurance agent. I don't have a finance degree &mdash; I have results.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>Do I need to be in a lot of debt to work with you?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Not at all. I work with people at all stages &mdash; whether you're dealing with serious debt, trying to build your first savings, or just want to get smarter about where your money goes. If you want to improve your financial life, we can work together.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>How do coaching sessions work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sessions are 45&ndash;60 minutes, held via video call (Zoom or Google Meet). Before our first session, you'll fill out an onboarding form so I can understand your full financial picture. From there, every session is focused on your specific situation and goals.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>What if I can't afford coaching right now?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>I get it &mdash; I've been there. That's why the discovery call is free and the monthly plan starts at just $99. If you're in a tight spot, let's talk about it. I'd rather help you get started than let cost be the thing that keeps you stuck.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>Is my financial information kept private?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Everything we discuss is confidential. Your financial details are never shared with anyone, period.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <span>Can you help me with my credit score?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>I can help you understand what impacts your credit score and build habits that improve it over time &mdash; like paying down debt, managing utilization, and staying current on obligations. I won't promise a specific number, but the strategies we use consistently move the needle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Get in Touch</p>
+        <h2>Let's Talk About Your Money.</h2>
+        <p>Ready to take the first step? Book a free 30-minute discovery call and let's figure out the best path forward for you.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me about your situation</label>
+            <textarea id="message" name="message" placeholder="What's going on with your finances? What are you hoping to change?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;text-align:center;cursor:pointer;">Send Message</button>
+        </form>
+        <div class="contact-info fade-in">
+          <h3>Direct Contact</h3>
+          <div class="contact-detail">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div>
+              <p class="label">Email</p>
+              <p class="value">matt@spenillosavingsolutionllc.com</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <p class="label">Location</p>
+              <p class="value">Remote / Nationwide</p>
+            </div>
+          </div>
+          <div style="margin-top:2rem;padding:1.5rem;background:var(--navy);border-radius:8px;">
+            <p style="color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:0.5rem;">Prefer to talk first?</p>
+            <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Book a free 30-minute discovery call. No commitment, no sales pitch &mdash; just a real conversation about your finances.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Take Control of Your Money?</h2>
+      <p>Book a free discovery call and let's build your financial future together.</p>
+      <a href="#contact" class="btn btn-gold">Book Your Free Call</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <p class="nav-logo">SPENILLO <span>SAVING</span> SOLUTION</p>
+        <p>Personal Finance Coaching &mdash; helping real people take control of their money through education, accountability, and proven strategies.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">My Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Spenillo Saving Solution, LLC. All rights reserved.</p>
+        <p style="margin-top:0.5rem;font-size:0.75rem;">Disclaimer: Spenillo Saving Solution, LLC is not a registered financial advisor. Our coaching is strictly educational. We do not provide investment, tax, or legal advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isActive = item.classList.contains('active');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        // Toggle current
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Contact form handler (sends to email via mailto as fallback)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone || 'Not provided'}%0A%0A${encodeURIComponent(message)}`;
+      window.location.href = `mailto:matt@spenillosavingsolutionllc.com?subject=Discovery Call Request from ${encodeURIComponent(name)}&body=${body}`;
+      alert('Opening your email client to send the message. If it doesn\'t open, please email matt@spenillosavingsolutionllc.com directly.');
+    }
+  </script>
+</body>
+</html>
