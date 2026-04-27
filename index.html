@@ -293,23 +293,64 @@
     }
     .story-teaser p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
-    /* ===== MY STORY (Full Page) ===== */
-    .my-story { background: var(--white); }
-    .my-story .section-header { text-align: center; margin-bottom: 3.5rem; }
-    .story-section { max-width: 760px; margin: 0 auto 3rem; }
-    .story-section h3 {
+    /* ===== ABOUT THE TEAM ===== */
+    .about-team { background: var(--white); }
+    .about-team .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .team-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .team-photo {
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+    .team-photo img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--gold);
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 8px 30px rgba(26, 35, 50, 0.15);
+    }
+    .team-title h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .team-title p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .team-bio .bio-heading {
       color: var(--navy);
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-    .story-section p { color: var(--gray); margin-bottom: 1rem; }
+    .team-bio p { color: var(--gray); margin-bottom: 1rem; line-height: 1.8; }
+
     .story-divider {
       width: 60px;
       height: 3px;
       background: var(--gold);
-      margin: 2.5rem auto;
+      margin: 2.5rem 0;
     }
 
     /* ===== SERVICES (Full Page) ===== */
@@ -572,6 +613,8 @@
     @media (max-width: 900px) {
       .steps-grid, .service-cards, .pricing-cards { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
       .story-teaser .container { grid-template-columns: 1fr; gap: 2rem; }
+      .team-card { grid-template-columns: 1fr; gap: 2rem; }
+      .team-photo { position: static; }
       .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
@@ -620,7 +663,7 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
-        <li><a href="#story">My Story</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -712,57 +755,51 @@
         <blockquote>"I didn't learn about money from a textbook. I learned it the hard way."</blockquote>
         <p>A few years ago, my wife and I were buried in consumer debt, dodging collection calls, and seriously considering bankruptcy. Today? We own a home, drive a brand new car, have zero consumer debt, and know exactly where every dollar goes.</p>
         <p>That transformation is what this business is built on.</p>
-        <a href="#story" class="btn btn-white">Read My Full Story</a>
+        <a href="#about" class="btn btn-white">Meet The Team</a>
       </div>
       <div class="fade-in" style="display:flex;align-items:center;justify-content:center;">
-        <div style="width:200px;height:200px;border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        </div>
+        <img src="headshot.jpg" alt="Matthew Spenillo - CEO & Personal Finance Coach" style="width:220px;height:220px;border-radius:50%;border:3px solid var(--gold);object-fit:cover;object-position:center top;">
       </div>
     </div>
   </section>
 
-  <!-- ===== MY STORY (Full) ===== -->
-  <section class="my-story" id="story">
+  <!-- ===== ABOUT THE TEAM ===== -->
+  <section class="about-team" id="about">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="section-label">My Story</p>
-        <h2>From Rock Bottom to Financial Freedom</h2>
+        <p class="section-label">About The Team</p>
+        <h2>The People Behind Your Financial Transformation</h2>
       </div>
 
-      <div class="story-section fade-in">
-        <h3>The Struggle</h3>
-        <p>I didn't grow up learning about money. Nobody in my family talked about budgets, investing, or building wealth. Like a lot of people, I figured things out as I went &mdash; and for a long time, I figured wrong.</p>
-        <p>By the time my wife and I started building a life together, we were drowning. Consumer debt was piling up. Collection agencies were calling constantly. We didn't have a savings account, we didn't have a plan, and at one point, we were seriously considering bankruptcy as our only way out.</p>
-        <p>It was the lowest point of my financial life.</p>
+      <!-- FOUNDER CARD -->
+      <div class="team-card fade-in">
+        <div class="team-photo">
+          <img src="headshot.jpg" alt="Matthew Spenillo - CEO & Personal Finance Coach">
+          <div class="team-title">
+            <h3>Matthew Spenillo</h3>
+            <p>CEO | Personal Finance Coach</p>
+          </div>
+        </div>
+        <div class="team-bio">
+          <h3 class="bio-heading">Professional Background</h3>
+          <p>Matthew brings a unique combination of real-world financial experience and professional licensing to his coaching practice. He is a licensed health insurance agent in the state of Florida, giving him a grounded understanding of the financial services landscape and the regulatory environment that protects consumers.</p>
+          <p>Before launching Spenillo Saving Solution, Matthew spent years in the workforce navigating the same financial challenges most Americans face &mdash; managing a household on a single income, balancing debt obligations, and trying to build long-term wealth without a financial background or family guidance to lean on.</p>
+
+          <div class="story-divider"></div>
+
+          <h3 class="bio-heading">The Story Behind The Mission</h3>
+          <p>Matthew didn't grow up learning about money. By the time he and his wife started building a life together, they were drowning in consumer debt, fielding constant collection calls, and seriously considering bankruptcy as their only option.</p>
+          <p>Instead of giving up, he got obsessed. He spent years self-educating &mdash; budgeting systems, debt payoff strategies, investing fundamentals, retirement planning, negotiation tactics with creditors. He took on every single debt collector himself. No lawyer, no professional help. Just discipline, strategy, and relentless follow-through.</p>
+          <p>Today, they own a home, drive a new car, hold retirement accounts and investment portfolios, carry zero consumer debt, and know exactly where every dollar goes. That transformation wasn't handed to them &mdash; it was built from the ground up.</p>
+
+          <div class="story-divider"></div>
+
+          <h3 class="bio-heading">Why He Coaches</h3>
+          <p>Matthew started Spenillo Saving Solution because he knows what it feels like to stare at a bank account and feel hopeless &mdash; and he knows what it feels like to come out the other side. His coaching is strictly educational, focused on budgeting, debt management, savings habits, and financial literacy. He doesn't provide investment advice, and if a situation requires a licensed professional, he'll always be transparent about that.</p>
+        </div>
       </div>
 
-      <div class="story-divider"></div>
-
-      <div class="story-section fade-in">
-        <h3>The Turning Point</h3>
-        <p>Instead of giving up, I got obsessed. I spent years educating myself &mdash; not in a classroom, but in the real world. Budgeting systems, debt payoff strategies, good debt vs. bad debt, investing fundamentals, retirement planning. I consumed everything I could get my hands on.</p>
-        <p>I took on every single debt collector myself. No lawyer, no professional help. I negotiated, I strategized, and I fought for our financial future.</p>
-      </div>
-
-      <div class="story-divider"></div>
-
-      <div class="story-section fade-in">
-        <h3>The Transformation</h3>
-        <p>Today, my wife and I own a home. We drive a brand new car. We have retirement accounts, investment portfolios, zero consumer debt, a healthy savings, and we know exactly where every dollar goes.</p>
-        <p>That didn't happen because someone handed us a playbook. It happened because I built one &mdash; through trial, error, and relentless discipline.</p>
-      </div>
-
-      <div class="story-divider"></div>
-
-      <div class="story-section fade-in">
-        <h3>Why I Coach</h3>
-        <p>I started Spenillo Saving Solution because I know what it feels like to stare at your bank account and feel hopeless. I know what it's like to avoid answering the phone because it might be a collector. And I know what it feels like to come out the other side.</p>
-        <p>I don't have fancy letters behind my name. What I have is proof that this works &mdash; and the drive to help other people experience the same transformation.</p>
-        <p>I'm also a licensed health insurance agent, which is the only professional credential I hold in the financial services space. My coaching is strictly educational &mdash; I help people with budgeting, debt management, savings habits, and financial literacy. I don't provide investment advice, and if your situation requires a licensed professional, I'll always be transparent about that.</p>
-      </div>
-
-      <div style="text-align:center; margin-top:2rem;" class="fade-in">
+      <div style="text-align:center; margin-top:3rem;" class="fade-in">
         <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.2rem;color:var(--navy);margin-bottom:1.5rem;">If I can do it, you can too. Let me show you how.</p>
         <a href="https://calendly.com/matthew-spenillosavingsolutionllc/free-discovery-call" target="_blank" class="btn btn-gold">Book Your Free Discovery Call</a>
       </div>
@@ -1006,7 +1043,7 @@
       </div>
       <ul class="footer-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#story">My Story</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
